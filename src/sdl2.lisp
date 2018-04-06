@@ -159,9 +159,7 @@ returning an SDL_true into CL's boolean type system."
 
 (defun sdl-main-thread ()
   (without-fp-traps
-    (let ((*main-thread* (bt:current-thread))
-          #+sdl2::sdl2-swank (swank:*sldb-quit-restart* 'continue)
-          #+sdl2::sdl2-slynk (slynk:*sly-db-quit-restart* 'continue))
+    (let ((*main-thread* (bt:current-thread)))
       (loop while *main-thread-channel* do
         (block loop-block
           (restart-bind ((continue (lambda (&optional v)
