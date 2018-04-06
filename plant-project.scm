@@ -1,5 +1,4 @@
 ((#:quickloads
-  "swank"
   "alexandria"
   "cl-fad"
   "cl-ppcre"
